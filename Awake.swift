@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Wake {
+class Awake {
     struct Device {
         var MAC: String
         var BroadcastAddr: String
