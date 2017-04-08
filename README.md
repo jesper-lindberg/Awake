@@ -1,10 +1,10 @@
-# Wake
+# Awake
 A Wake-on-Lan library in Swift
 
 ### Usage:
 ```swift
-let computer = Wake.Device(MAC: "AA:AA:AA:AA:AA:AA", BroadcastAddr: "255.255.255.255", Port: 9)
-Wake.target(device: computer)
+let computer = Awake.Device(MAC: "AA:AA:AA:AA:AA:AA", BroadcastAddr: "255.255.255.255", Port: 9)
+Awake.target(device: computer)
 ```
 
 ## License
