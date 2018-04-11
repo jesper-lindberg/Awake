@@ -37,7 +37,7 @@ class Awake {
             return WakeError.SocketSetupFailed(reason: err)
         }
         
-        let packet = Wake.createMagicPacket(mac: device.MAC)
+        let packet = Awake.createMagicPacket(mac: device.MAC)
         let sockaddrLen = socklen_t(MemoryLayout<sockaddr>.stride)
         let intLen = socklen_t(MemoryLayout<Int>.stride)
         
