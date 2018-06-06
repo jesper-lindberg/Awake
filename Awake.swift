@@ -1,5 +1,5 @@
 //
-//  Wake.swift
+//  Awake.swift
 //
 //  Created by Jesper Lindberg on 2016-10-03.
 //  Copyright © 2016 Jesper Lindberg. All rights reserved.
