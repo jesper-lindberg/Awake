@@ -9,6 +9,12 @@ import Foundation
 
 public class Awake {
     public struct Device {
+        internal init(MAC: String, BroadcastAddr: String, Port: UInt16 = 9) {
+            self.MAC = MAC
+            self.BroadcastAddr = BroadcastAddr
+            self.Port = Port
+        }
+        
         var MAC: String
         var BroadcastAddr: String
         var Port: UInt16 = 9
