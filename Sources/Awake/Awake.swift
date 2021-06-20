@@ -9,7 +9,7 @@ import Foundation
 
 public class Awake {
     public struct Device {
-        internal init(MAC: String, BroadcastAddr: String, Port: UInt16 = 9) {
+        public init(MAC: String, BroadcastAddr: String, Port: UInt16 = 9) {
             self.MAC = MAC
             self.BroadcastAddr = BroadcastAddr
             self.Port = Port
