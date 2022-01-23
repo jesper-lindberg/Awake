@@ -1,26 +1,25 @@
-//
-//  Awake.swift
-//
-//  Created by Jesper Lindberg on 2016-10-03.
-//  Copyright © 2016 Jesper Lindberg. All rights reserved.
-//
-
 import Foundation
 
-class Awake {
-    struct Device {
+public class Awake {
+    public struct Device {
+        public init(MAC: String, BroadcastAddr: String, Port: UInt16 = 9) {
+            self.MAC = MAC
+            self.BroadcastAddr = BroadcastAddr
+            self.Port = Port
+        }
+        
         var MAC: String
         var BroadcastAddr: String
         var Port: UInt16 = 9
     }
     
-    enum WakeError: Error {
+    public enum WakeError: Error {
         case SocketSetupFailed(reason: String)
         case SetSocketOptionsFailed(reason: String)
         case SendMagicPacketFailed(reason: String)
     }
     
-    static func target(device: Device) -> Error? {
+    public static func target(device: Device) -> Error? {
         var sock: Int32
         var target = sockaddr_in()
         
