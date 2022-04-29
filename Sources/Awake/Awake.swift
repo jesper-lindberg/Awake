@@ -24,7 +24,13 @@ public class Awake {
         var target = sockaddr_in()
         
         target.sin_family = sa_family_t(AF_INET)
-        target.sin_addr.s_addr = inet_addr(device.BroadcastAddr)
+        
+        // Check Broadcast address (is an IP address or a domain name)
+        var bcaddr = inet_addr(device.BroadcastAddr)
+        if bcaddr == INADDR_NONE {
+            bcaddr = inet_addr(gethostbyname(device.BroadcastAddr))
+        }
+        target.sin_addr.s_addr = bcaddr
         
         let isLittleEndian = Int(OSHostByteOrder()) == OSLittleEndian
         target.sin_port = isLittleEndian ? _OSSwapInt16(device.Port) : device.Port
@@ -60,7 +66,7 @@ public class Awake {
         
         return nil
     }
-
+    
     private static func createMagicPacket(mac: String) -> [CUnsignedChar] {
         var buffer = [CUnsignedChar]()
         
@@ -73,9 +79,9 @@ public class Awake {
         let numbers = components.map {
             return strtoul($0, nil, 16)
         }
-
-        // Repeat MAC address 16 times
-        for _ in 1...16 {
+        
+        // Repeat MAC address 20 times
+        for _ in 1...20 {
             for number in numbers {
                 buffer.append(CUnsignedChar(number))
             }
